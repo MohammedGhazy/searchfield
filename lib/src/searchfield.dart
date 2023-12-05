@@ -525,7 +525,7 @@ class _SearchFieldState<T> extends State<SearchField<T>> {
             duration: widget.suggestionDirection == SuggestionDirection.up
                 ? Duration.zero
                 : Duration(milliseconds: 300),
-            height: _totalHeight,
+            height: 100,
             alignment: Alignment.centerLeft,
             decoration: widget.suggestionsDecoration ??
                 BoxDecoration(
@@ -654,11 +654,11 @@ class _SearchFieldState<T> extends State<SearchField<T>> {
   final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
-    if (widget.suggestions.length > widget.maxSuggestionsInViewPort) {
-      _totalHeight = widget.itemHeight * widget.maxSuggestionsInViewPort;
-    } else {
-      _totalHeight = widget.suggestions.length * widget.itemHeight;
-    }
+    // if (widget.suggestions.length > widget.maxSuggestionsInViewPort) {
+    //   _totalHeight = widget.itemHeight * widget.maxSuggestionsInViewPort;
+    // } else {
+    //   _totalHeight = widget.suggestions.length * widget.itemHeight;
+    // }
     return CompositedTransformTarget(
       link: _layerLink,
       child: TextFormField(
