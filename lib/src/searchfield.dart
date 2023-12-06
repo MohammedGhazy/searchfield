@@ -444,15 +444,15 @@ class _SearchFieldState<T> extends State<SearchField<T>> {
           final paddingHeight = widget.suggestionsDecoration != null
               ? widget.suggestionsDecoration!.padding.vertical
               : 0;
-          if (snapshot.data!.length > widget.maxSuggestionsInViewPort) {
-            _totalHeight = widget.itemHeight * widget.maxSuggestionsInViewPort +
-                paddingHeight;
-          } else if (snapshot.data!.length == 1) {
-            _totalHeight = widget.itemHeight + paddingHeight;
-          } else {
-            _totalHeight =
-                snapshot.data!.length * widget.itemHeight + paddingHeight;
-          }
+          // if (snapshot.data!.length > widget.maxSuggestionsInViewPort) {
+          //   _totalHeight = widget.itemHeight * widget.maxSuggestionsInViewPort +
+          //       paddingHeight;
+          // } else if (snapshot.data!.length == 1) {
+          //   _totalHeight = widget.itemHeight + paddingHeight;
+          // } else {
+          //   _totalHeight =
+          //       snapshot.data!.length * widget.itemHeight + paddingHeight;
+          // }
           final onSurfaceColor = Theme.of(context).colorScheme.onSurface;
 
           final Widget listView = ListView.builder(
@@ -525,7 +525,7 @@ class _SearchFieldState<T> extends State<SearchField<T>> {
             duration: widget.suggestionDirection == SuggestionDirection.up
                 ? Duration.zero
                 : Duration(milliseconds: 300),
-            height: 100,
+            height: 50,
             alignment: Alignment.centerLeft,
             decoration: widget.suggestionsDecoration ??
                 BoxDecoration(
@@ -577,7 +577,7 @@ class _SearchFieldState<T> extends State<SearchField<T>> {
     if (mounted) {
       final size = MediaQuery.of(context).size;
       final isSpaceAvailable = size.height >
-          textFieldOffset.dy + textFieldSize.height + _totalHeight;
+          textFieldOffset.dy + textFieldSize.height + 50;
       if (widget.suggestionDirection == SuggestionDirection.down) {
         return Offset(0, textFieldSize.height);
       } else if (widget.suggestionDirection == SuggestionDirection.up) {
@@ -647,7 +647,7 @@ class _SearchFieldState<T> extends State<SearchField<T>> {
   }
 
   final LayerLink _layerLink = LayerLink();
-  late double _totalHeight;
+  // late double _totalHeight;
   GlobalKey key = GlobalKey();
   bool _isDirectionCalculated = false;
   Offset _offset = Offset.zero;
