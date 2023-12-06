@@ -525,7 +525,7 @@ class _SearchFieldState<T> extends State<SearchField<T>> {
             duration: widget.suggestionDirection == SuggestionDirection.up
                 ? Duration.zero
                 : Duration(milliseconds: 300),
-            height: 150,
+            height: 50,
             alignment: Alignment.centerLeft,
             decoration: widget.suggestionsDecoration ??
                 BoxDecoration(
